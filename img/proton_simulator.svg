@@ -28,7 +28,7 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="1.4648618"
-     inkscape:cx="72.361775"
+     inkscape:cx="323.58001"
      inkscape:cy="245.07431"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
@@ -261,7 +261,7 @@
      transform="matrix(1.5660506,0.01562943,-0.01502524,1.5205995,-34.400389,-47.691562)"><tspan
        x="59.413834"
        y="77.046448"
-       id="tspan4358">+</tspan></text>
+       id="tspan446">+</tspan></text>
   <text
      xml:space="preserve"
      transform="matrix(0.26458334,0,0,0.26458334,1.5320421,8.3070945)"
@@ -281,7 +281,7 @@
      transform="scale(0.97517537,1.0254566)"><tspan
        sodipodi:role="line"
        id="tspan351"
-       style="fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Joystix;-inkscape-font-specification:Joystix;fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
        x="2.6344752"
        y="124.90301">PROTON SIMULATOR</tspan><tspan
        sodipodi:role="line"
