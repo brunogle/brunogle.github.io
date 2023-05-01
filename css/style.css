@@ -50,6 +50,10 @@ main {
     border-radius: 10px;
 }
 
+.page-title{
+    text-align: center;
+    margin: 20px;
+}
 
 footer {
     color: #fff;
