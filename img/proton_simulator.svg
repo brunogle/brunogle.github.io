@@ -9,7 +9,7 @@
    id="svg5"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="proton_simulator.svg"
-   inkscape:export-filename="aaa.svg"
+   inkscape:export-filename="proton_simulator.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -261,7 +261,7 @@
      transform="matrix(1.5660506,0.01562943,-0.01502524,1.5205995,-34.400389,-47.691562)"><tspan
        x="59.413834"
        y="77.046448"
-       id="tspan446">+</tspan></text>
+       id="tspan578">+</tspan></text>
   <text
      xml:space="preserve"
      transform="matrix(0.26458334,0,0,0.26458334,1.5320421,8.3070945)"
@@ -274,19 +274,19 @@
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'Free Pixel';-inkscape-font-specification:'Free Pixel';white-space:pre;shape-inside:url(#rect329);display:inline;fill:none;stroke:#292929;stroke-width:2" />
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.0731px;font-family:'Free Pixel';-inkscape-font-specification:'Free Pixel';fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-     x="2.6344752"
-     y="124.90301"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.4836px;font-family:'Free Pixel';-inkscape-font-specification:'Free Pixel';fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+     x="1.645281"
+     y="111.99073"
      id="text353"
-     transform="scale(0.97517537,1.0254566)"><tspan
+     transform="scale(0.91126907,1.0973707)"><tspan
        sodipodi:role="line"
        id="tspan351"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Joystix;-inkscape-font-specification:Joystix;fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-       x="2.6344752"
-       y="124.90301">PROTON SIMULATOR</tspan><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.7444px;font-family:Joystix;-inkscape-font-specification:Joystix;fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       x="1.645281"
+       y="111.99073">PROTON SIMULATOR</tspan><tspan
        sodipodi:role="line"
        style="fill:#c4c4c4;fill-opacity:1;stroke:#bababa;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-       x="2.6344752"
-       y="144.99438"
+       x="1.645281"
+       y="133.84523"
        id="tspan373" /></text>
 </svg>
