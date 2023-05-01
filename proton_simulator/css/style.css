@@ -1,0 +1,41 @@
+.ps-col{
+    float: left;
+}
+.ps-graphic {
+    width: 50%;
+}
+
+.ps-controls{
+    width: 50%;
+}
+
+.ps-app:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.ps-button {
+    margin: 5px;
+    padding: 10px;
+    color: #111;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.ps-button:hover {
+    background-color: #f40;
+    color: #000;
+}
+
+.fps{
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .reset-prompt {
+        visibility: hidden;
+        display: none;
+    }
+}
