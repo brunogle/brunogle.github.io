@@ -3,7 +3,7 @@ let gpucanvas = document.getElementById("canvas");
 let fpsText = document.getElementById("gputime-text");
 
 //GPU
-const gpu = new GPU({ canvas: gpucanvas, mode: 'webgl2' });
+const gpu = new GPU.GPU({ canvas: gpucanvas, mode: 'webgl2' });
 
 //Starting size
 let gridSizeX = Math.min(400, Math.floor(window.innerWidth / 3));
