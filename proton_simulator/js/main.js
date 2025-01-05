@@ -1,6 +1,7 @@
 //Get needed HTML elements
 let gpucanvas = document.getElementById("canvas");
 let fpsText = document.getElementById("gputime-text");
+let idealFpsText = document.getElementById("gputime-ideal-text");
 
 //GPU
 // const gpu = new GPU.GPU({ canvas: gpucanvas, mode: 'webgl2' });
@@ -90,10 +91,29 @@ let particleY = gridSizeX / 2;
 let particleXVel = 0;
 let particleYVel = 0;
 
+const canvas = document.getElementById('canvas');
+
+// Prevent default touch behavior
+canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', (e) => {
+    e.preventDefault();
+}, { passive: false });
 
 //Called when mouse updates
 function updateParticlePostion(canvas, e) {
     let x, y;
+    const rect = canvas.getBoundingClientRect();
+
+    const scaleX = canvas.width / rect.width;   // Horizontal scaling factor
+    const scaleY = canvas.height / rect.height; // Vertical scaling factor
+
 
     if (e.type.includes('touch')) {
         let touch = e.touches[0] || e.changedTouches[0];
@@ -105,9 +125,13 @@ function updateParticlePostion(canvas, e) {
     }
 
 
-    const rect = canvas.getBoundingClientRect();
-    mouseY = (x - rect.left) / cellSize;
-    mouseX = gridSizeY - (y + rect.top) / cellSize + rect.top;
+    console.log("rect.width: " + rect.width)
+    console.log("rect.height: " + rect.height)
+    console.log("canvas.width: " + canvas.width)
+    console.log("canvas.height: " + canvas.height)
+
+    mouseY = (x - rect.left)* scaleX / cellSize;
+    mouseX = gridSizeY - ((y + rect.top) / cellSize - rect.top)* scaleY ;
 }
 
 //Called when key is pressed
@@ -128,6 +152,8 @@ function createArray(sizeX, sizeY) { //Creates a 2D array
 
     return a;
 }
+
+
 
 
 function showPerformance(fps) { //Update HTML Performance numbers

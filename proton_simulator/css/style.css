@@ -1,41 +1,76 @@
-.ps-col{
-    float: left;
-}
-.ps-graphic {
-    width: 50%;
-}
-
-.ps-controls{
-    width: 50%;
+/* General layout styles */
+.ps-app {
+    display: flex;
+    flex-direction: row; /* Default for desktop */
+    justify-content: space-between;
+    gap: 20px; /* Add spacing between graphic and controls */
 }
 
-.ps-app:after {
-    content: "";
-    display: table;
-    clear: both;
+.ps-col {
+    flex: 1;
+    min-width: 0; /* Prevent flexbox content from overflowing */
+}
+
+canvas {
+    border: 2px solid #f40; /* A 2px solid black border */
+    touch-action: none;     /* Prevent default touch behaviors */
+}
+
+.reset-prompt{
+    font-size:25px;
+}
+
+/* Media query for vertical screen */
+@media (orientation: portrait) { /* Applies when the screen is vertical */
+    .ps-app {
+        flex-direction: column; /* Stack the columns vertically */
+    }
+
+    .ps-graphic {
+        order: 1; /* Ensure graphics appear first */
+        width: 100%; /* Take full width */
+        margin-bottom: 20px; /* Add space below the graphic */
+    }
+
+    .ps-controls {
+        order: 2; /* Ensure controls appear below */
+        width: 100%; /* Take full width */
+    }
 }
 
 .ps-button {
-    margin: 5px;
-    padding: 10px;
-    color: #111;
-    font-weight: bold;
-    border-radius: 10px;
-    border: 1px solid #000;
+    font-size: 20px;              /* Larger text size */
+    padding: 15px 30px;           /* Larger padding for bigger buttons */
+    background-color: #333333;    /* Dark gray background */
+    color: orange;                /* Orange text color */
+    border: 3px solid orange;     /* Orange border */
+    border-radius: 8px;           /* Rounded corners */
+    cursor: pointer;              /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
+/* Remove the outline/focus on button press */
+.ps-button:focus,
+.ps-button:active {
+    outline: none;          /* Remove focus outline */
+    background-color: #333; /* Optional: You can also adjust the background on active */
+    color: orange;          /* Ensure text color remains the same */
+}
+
+/* Optional: Remove any background changes that might be happening on active or focus */
+.ps-button:active {
+    background-color: #333; /* Ensure background stays the same when pressed */
+}
+
+/* Button hover effect */
 .ps-button:hover {
-    background-color: #f40;
-    color: #000;
+    background-color: orange;     /* Change background to orange on hover */
+    color: #333333;                /* Change text color to dark gray */
 }
 
-.fps{
-    color: white;
+/* Optional styles for better visualization */
+canvas {
+    width: 100%; /* Ensure the canvas adjusts to its container */
+    height: auto; /* Maintain aspect ratio */
 }
-
-@media screen and (max-width: 768px) {
-    .reset-prompt {
-        visibility: hidden;
-        display: none;
-    }
-}
+ 

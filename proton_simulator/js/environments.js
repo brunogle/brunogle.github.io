@@ -40,7 +40,7 @@ function setEnvHalfDielectric() {
     newEnvironmentFunction = () => {
         for (let i = 0; i < gridSizeX; i++) {
             for (let j = 0; j < gridSizeY; j++) {
-                eps[j][i] = (j < gridSizeY / 2) ? 3 : 1.0;
+                eps[j][i] = (j < gridSizeY / 2) ? 4 : 1.0;
             }
         }
 
