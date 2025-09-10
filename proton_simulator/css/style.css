@@ -74,3 +74,7 @@ canvas {
     height: auto; /* Maintain aspect ratio */
 }
  
+.project-description {
+    font-size: 16px;      /* base text size */
+    line-height: 1.4;     /* spacing between lines for readability */
+}
