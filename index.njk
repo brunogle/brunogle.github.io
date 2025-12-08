@@ -1,0 +1,42 @@
+---
+title: Bruno Glecer
+layout: base.njk
+---
+
+<p> El proyecto del presente año para la materia Electrónica Aplicada 3 consta de la construcción del front-end
+de un sistema de radar de onda continua modulada en frecuencia (FMCW). Una parte crítica de este
+sistema es el amplificador de bajo ruido (LNA). </p>
+
+<p> Durante el transcurso del primer cuatrimestre se desarrollaron los fundamentos teóricos sobre los que
+se basa el mismo, seguido de un diseño de un PCB sobre el cual implementar el circuito. </p>
+
+
+<header>
+    <h2>My Projects</a></h2>
+</header>
+
+<div class="preview-grid">
+{% for post in collections.posts %}
+    <div class="preview-post">
+
+        {% if post.data.image %}
+        <a href="{{ post.url }}">
+            <img src="{{ post.data.image }}" class="preview-image" alt="{{ post.data.title }}">
+        </a>
+        {% endif %}
+
+        <div class="preview-text">
+            <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+
+            {% if post.data.preview %}
+                {{ post.data.preview | safe }}
+            {% elseif post.data.description %}
+                <p>{{ post.data.description }}</p>
+            {% else %}
+                <p>No preview available.</p>
+            {% endif %}
+        </div>
+
+    </div>
+{% endfor %}
+</div>

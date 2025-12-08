@@ -1,0 +1,123 @@
+/* ---------- Base ---------- */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1300px;
+    margin: 40px auto;
+    line-height: 1.6;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+h2   {
+    text-align: center;
+}
+.preview-post h2 {
+    margin: 0 0 0rem 0;   /* remove big margin, keep a tiny spacing */
+    line-height: 1.1;
+}
+
+/* Links consistent color */
+a,
+a:visited,
+a:hover,
+a:active {
+    color: #0077cc;
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ---------- Grid wrapper (1-3 columns) ---------- */
+.preview-grid {
+    display: grid;
+    row-gap: 0.3rem;   /* vertical */
+    column-gap: 1rem;  /* horizontal */
+
+    /* Minimum column width → 280px  
+       Maximum columns → 3  
+       Auto-fit will create 1, 2, or 3 columns depending on space */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    max-width: 1300px; /* Ensures layout never fits more than 3 cols */
+    margin: 0 auto;
+}
+
+
+/* ---------- Preview card (inside each grid cell) ---------- */
+.preview-post {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #aaa;
+    padding: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    align-items: flex-start;   /* container grows with image */
+}
+
+/* Ensure anchor wrapper behaves as a block inside flex */
+.preview-post > a {
+    display: block;
+    flex: 0 0 auto; /* don't allow anchor to grow/shrink unexpectedly */
+}
+
+/* ---------- Image (desktop: left column fixed size) ---------- */
+/* target image (works whether wrapped in <a> or not) */
+.preview-post .preview-image {
+    width: 180px;              /* fixed width */
+    height: auto;              /* ★ key line: keeps full image height */
+    object-fit: contain;       /* no cropping */
+    object-position: bottom;   /* optional: image bottom alignment */
+    border-radius: 6px;
+    flex-shrink: 0;            /* prevents squishing */
+    border: 1px solid #aaa;
+}
+/* ---------- Text area ---------- */
+.preview-post .preview-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size:16px;
+}
+
+/* if you want the whole card clickable, wrap .preview-post content in <a class="card-link"> and use:
+   .preview-post .card-link { display:flex; align-items:stretch; gap:1rem; width:100%; text-decoration:none; color:inherit; } */
+
+/* ---------- Responsive: tablets & mobile ---------- */
+@media (max-width: 900px) {
+    .preview-post .preview-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 650px) {
+    /* stacked layout: image on top, text below */
+    .preview-post {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+        min-height: auto;
+    }
+
+    /* image becomes full-width, keep natural aspect */
+    .preview-post .preview-image {
+        width: 100%;
+        height: auto;
+        max-height: 400px; /* optional cap to avoid massive images */
+    }
+
+    .preview-post .preview-text {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
