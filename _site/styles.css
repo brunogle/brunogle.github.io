@@ -1,123 +1,116 @@
-/* ---------- Base ---------- */
+/* ---------- Base (Dark Mode) ---------- */
 body {
     font-family: Arial, sans-serif;
     max-width: 1300px;
     margin: 40px auto;
     line-height: 1.6;
-    background-color: #fff;
+    background-color: #111;   /* dark background */
+    color: #eee;              /* bright readable text */
     padding: 0 15px;
 }
 
+/* ---------- Post container ---------- */
 .post {
-    border: 1px solid #ccc;
+    border: 1px solid #333;
+    background: #1a1a1a;
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
-h1 {
+/* ---------- Headings ---------- */
+h1, h2 {
     text-align: center;
+    color: #fff;
 }
-h2   {
-    text-align: center;
-}
+
 .preview-post h2 {
-    margin: 0 0 0rem 0;   /* remove big margin, keep a tiny spacing */
+    margin: 0;
     line-height: 1.1;
 }
 
-/* Links consistent color */
+/* ---------- Links ---------- */
 a,
 a:visited,
 a:hover,
 a:active {
-    color: #0077cc;
+    color: #ffb61a;
     text-decoration: none;
-}
+} 
 a:hover { text-decoration: underline; }
 
-/* ---------- Grid wrapper (1-3 columns) ---------- */
+/* ---------- Grid wrapper (1–3 columns) ---------- */
 .preview-grid {
     display: grid;
-    row-gap: 0.3rem;   /* vertical */
-    column-gap: 1rem;  /* horizontal */
-
-    /* Minimum column width → 280px  
-       Maximum columns → 3  
-       Auto-fit will create 1, 2, or 3 columns depending on space */
+    row-gap: 0.3rem;
+    column-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
-    max-width: 1300px; /* Ensures layout never fits more than 3 cols */
+    max-width: 1300px;
     margin: 0 auto;
 }
 
-
-/* ---------- Preview card (inside each grid cell) ---------- */
+/* ---------- Preview card ---------- */
 .preview-post {
     display: flex;
     gap: 1rem;
-    border: 1px solid #aaa;
+    border: 1px solid #333;
+    background: #1a1a1a;
     padding: 1rem;
     padding-bottom: 0;
     margin-bottom: 1rem;
     border-radius: 8px;
-    align-items: flex-start;   /* container grows with image */
+    align-items: flex-start;
 }
 
-/* Ensure anchor wrapper behaves as a block inside flex */
+/* Anchor wrapper inside flex */
 .preview-post > a {
     display: block;
-    flex: 0 0 auto; /* don't allow anchor to grow/shrink unexpectedly */
+    flex: 0 0 auto;
 }
 
-/* ---------- Image (desktop: left column fixed size) ---------- */
-/* target image (works whether wrapped in <a> or not) */
+/* ---------- Image styling ---------- */
 .preview-post .preview-image {
-    width: 180px;              /* fixed width */
-    height: auto;              /* ★ key line: keeps full image height */
-    object-fit: contain;       /* no cropping */
-    object-position: bottom;   /* optional: image bottom alignment */
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
     border-radius: 6px;
-    flex-shrink: 0;            /* prevents squishing */
-    border: 1px solid #aaa;
+    flex-shrink: 0;
+    border: 1px solid #444; /* darker border */
+    background-color: #000; /* removes white borders on some formats */
 }
+
 /* ---------- Text area ---------- */
 .preview-post .preview-text {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size:16px;
+    font-size: 16px;
+    color: #ddd;
 }
 
-/* if you want the whole card clickable, wrap .preview-post content in <a class="card-link"> and use:
-   .preview-post .card-link { display:flex; align-items:stretch; gap:1rem; width:100%; text-decoration:none; color:inherit; } */
 
-/* ---------- Responsive: tablets & mobile ---------- */
-@media (max-width: 900px) {
-    .preview-post .preview-image {
-        width: 100px;
-        height: 100px;
-    }
-}
+/* ======================================
+   MOBILE RESPONSIVENESS
+   ====================================== */
 
-@media (max-width: 650px) {
-    /* stacked layout: image on top, text below */
+/* ---------- Collapse image + text to vertical stack ---------- */
+@media (max-width: 600px) {
     .preview-post {
         flex-direction: column;
-        align-items: stretch;
-        text-align: left;
-        min-height: auto;
+        align-items: center;
+        text-align: center;
     }
 
-    /* image becomes full-width, keep natural aspect */
     .preview-post .preview-image {
         width: 100%;
-        height: auto;
-        max-height: 400px; /* optional cap to avoid massive images */
+        max-width: 320px;
+        margin-bottom: 0.5rem;
     }
 
     .preview-post .preview-text {
+        text-align: left; /* or center if you prefer */
         width: 100%;
-        margin-top: 0.5rem;
     }
 }

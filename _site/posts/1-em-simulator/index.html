@@ -1,16 +1,21 @@
----
-title: Real-time EM Simulator
-tags: posts
-description: |
-  A real-time electromagnetic simulator built in JavaScript using GPU computation,
-  this project visualizes how electric and magnetic fields respond to the movement
-  of a charge controlled by the user’s cursor.
-layout: post.njk
-permalink: /posts/1-em-simulator/
-video: /images/post1.webm
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Real-time EM Simulator</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body onkeypress="keyPress(event)">
 
----
-<link rel="stylesheet" href="styles.css">
+    <header>
+        <h1><a href="/">Bruno Glecer</a></h1>
+    </header>
+
+    <main>
+        
+<article class="post">
+    <h2>Real-time EM Simulator</h2>
+    <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/gpu.js@latest/dist/gpu-browser.min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -127,3 +132,8 @@ video: /images/post1.webm
                             </p>
                             
                         </main>
+</article>
+    </main>
+
+</body>
+</html>

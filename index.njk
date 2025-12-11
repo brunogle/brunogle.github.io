@@ -25,6 +25,14 @@ se basa el mismo, seguido de un diseño de un PCB sobre el cual implementar el c
         </a>
         {% endif %}
 
+        {% if post.data.video %}
+        <a href="{{ post.url }}">
+            <video autoplay loop muted playsinline  class="preview-image">
+                <source src="{{ post.data.video }}" type="video/webm">
+            </video>
+        </a>
+        {% endif %}
+
         <div class="preview-text">
             <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
 
