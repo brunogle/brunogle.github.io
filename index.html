@@ -7,119 +7,150 @@
 </head>
 <body onkeypress="keyPress(event)">
 
-    <header>
-        <h1><a href="/">Bruno Glecer</a></h1>
-    </header>
-
-    <main>
-        
-<p> Hi! I'm Bruno, this website is still under construction :)</p>
-
-
-
-<header>
-    <h2>My Projects</a></h2>
+<header class="header">
+  <div class="container">
+    <a href="/" style="margin: 0 auto;">
+      <h1 class="site-name">Bruno Glecer</h1>
+    </a>
+  </div>
 </header>
 
-<div class="preview-grid">
 
-    <div class="preview-post">
+<main>
+    
 
-        
+
+<!-- =========================
+     index.html (Old-School Professional)
+========================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+
+<body>
+
+<!-- Intro / Hero -->
+<section class="hero">
+  <div class="container">
+    <p class="about">
+      Hi! I'm Bruno. I like electronics, programming, math, physics and combining them.
+      <br>
+      I'm still working on this site :)
+    </p>
+  </div>
+</section>
+
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Some of my projects</h2>
+
+
+    
+    <div class="project">
+      <div class="project-row">
         <a href="/sipm-testbench/">
-            <img src="/images/post2.png" class="preview-image" alt="Portable SiPM Testbench (Thesis Project)">
+            
+                <img src="/images/post2.png" alt="Portable SiPM Testbench (Thesis Project)" class="project-img" />
+            
+            
+            
         </a>
-        
-
-        
-
-        <div class="preview-text">
-            <h2><a href="/sipm-testbench/">Portable SiPM Testbench (Thesis Project)</a></h2>
-
+        <div class="project-text">
+        <h3><a href="/sipm-testbench/">Portable SiPM Testbench (Thesis Project)</a></h3>
             
                 <p>SiPM testbench for characterizing SiPM performance (DCR, SPE, Dark current)
 based on custom electronics and a Red Pitaya FPGA Board. Portability offers
 a robust solution of SiPM irradiation campaigns.
 </p>
-            
-        </div>
-
+                    </div>
+      </div>
     </div>
-
-    <div class="preview-post">
-
-        
-
-        
+    
+    <div class="project">
+      <div class="project-row">
         <a href="/emsim/">
-            <video autoplay loop muted playsinline  class="preview-image">
-                <source src="/images/post1.webm" type="video/webm">
-            </video>
+            
+            
+                <video autoplay loop muted playsinline  class="project-img">
+                    <source src="/images/post1.webm" type="video/webm">
+                </video>
+            
+            
         </a>
-        
-
-        <div class="preview-text">
-            <h2><a href="/emsim/">Real-time EM Simulator</a></h2>
-
+        <div class="project-text">
+        <h3><a href="/emsim/">Real-time EM Simulator</a></h3>
             
                 <p>A real-time electromagnetic simulator built in JavaScript using GPU computation,
 this project visualizes how electric and magnetic fields respond to the movement
 of a charge controlled by the user’s cursor.
 </p>
-            
-        </div>
-
+                    </div>
+      </div>
     </div>
-
-    <div class="preview-post">
-
-        
+    
+    <div class="project">
+      <div class="project-row">
         <a href="/lna/">
-            <img src="/images/post4.png" class="preview-image" alt="1 GHz Low Noise Amplifier">
+            
+                <img src="/images/post4.png" alt="1 GHz Low Noise Amplifier" class="project-img" />
+            
+            
+            
         </a>
-        
-
-        
-
-        <div class="preview-text">
-            <h2><a href="/lna/">1 GHz Low Noise Amplifier</a></h2>
-
+        <div class="project-text">
+        <h3><a href="/lna/">1 GHz Low Noise Amplifier</a></h3>
             
                 <p>Project for the RF measurements course. The amplifier was designed for
 minimum noise figure and simulated using CST Studio. Measurements were
 carried to ensure match between theory and simulations.
 </p>
-            
-        </div>
-
+                    </div>
+      </div>
     </div>
-
-    <div class="preview-post">
-
-        
+    
+    <div class="project">
+      <div class="project-row">
         <a href="/primes/">
-            <img src="/images/post5.png" class="preview-image" alt="A Prime-Generating Constant">
+            
+                <img src="/images/post5.png" alt="A Prime-Generating Constant" class="project-img" />
+            
+            
+            
         </a>
-        
-
-        
-
-        <div class="preview-text">
-            <h2><a href="/primes/">A Prime-Generating Constant</a></h2>
-
+        <div class="project-text">
+        <h3><a href="/primes/">A Prime-Generating Constant</a></h3>
             
                 <p>We present a constant and a recursive relation to define a sequence fn such that
 the floor of fn is the nth prime. Therefore, this constant generates the complete sequence
 of primes. We also show this constant is irrational and consider other sequences that can be
 generated using the same method
 </p>
-            
-        </div>
-
+                    </div>
+      </div>
     </div>
+    
 
-</div>
-    </main>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <p>© 2025 Bruno Glecer</p>
+</footer>
+
+</body>
+</html>
+
+
+</main>
 
 </body>
 </html>

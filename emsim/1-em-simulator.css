@@ -1,0 +1,166 @@
+:root {
+  /* re-uses --orange from global styles.css */
+}
+
+/* Layout for simulator page */
+.ps-sim {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.ps-sim .ps-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
+}
+
+/* Graphic column stacks: canvas -> buttons -> doc */
+.ps-graphic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+}
+
+/* Canvas sizing */
+.ps-sim .ps-graphic canvas {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02));
+}
+
+/* Controls container under canvas */
+.ps-graphic .controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 760px;
+  margin-top: 6px;
+}
+
+/* compact center rows inside controls */
+.ps-graphic .control-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Environment buttons wrapper */
+.ps-graphic .env-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Framerate aside sizing */
+.ps-sim .ps-controls {
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 140px;
+}
+
+/* Below-sim container spacing */
+.below-sim { margin-top: 24px; }
+
+/* Doc text */
+.ps-doc h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--orange);
+}
+.ps-doc p {
+  color: #ccc;
+  line-height: 1.5;
+}
+.ps-doc a { text-decoration: none; color: var(--orange); }
+
+/* Pretty orange buttons (simplified to plain orange) --------------------- */
+.ps-button {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 120ms ease, opacity 120ms ease;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.ps-button:hover,
+.ps-button:focus {
+  background-color: #e85d00; /* slightly darker */
+  outline: none;
+}
+
+.ps-button:active {
+  opacity: 0.95;
+}
+
+/* secondary (less prominent) variant */
+.ps-button.secondary {
+  background: transparent;
+  color: var(--orange);
+  border: 1px solid rgba(249,115,22,0.18);
+}
+
+/* small size */
+.ps-button.small { padding: 6px 10px; font-size: 13px; border-radius: 6px; }
+
+/* environment-specific hues retained but simple */
+.ps-button.set-vacuum { background: var(--orange); }
+.ps-button.set-half-dielectric { background: var(--orange); }
+.ps-button.set-circle { background: var(--orange); }
+.ps-button.set-parabolic-mirror { background: var(--orange); }
+.ps-button.set-double-slit { background: var(--orange); }
+
+/* framerate row shown above the buttons (under canvas) */
+.ps-graphic .controls .fps-row {
+  color: var(--text);           /* light text on dark bg */
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ps-graphic .controls .fps {
+  color: var(--orange);         /* numeric FPS emphasized in orange */
+  font-weight: 700;
+}
+
+/* small spacing below framerate so buttons sit under it */
+.ps-graphic .controls .fps-row { margin-bottom: 6px; }
+
+/* ensure control rows remain centered under canvas */
+.ps-graphic .controls .control-row {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 800px) {
+  .ps-graphic { padding: 12px; width: 100%; order: 1; }
+  .ps-sim .ps-controls { width: 100%; order: 2; }
+}

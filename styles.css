@@ -1,116 +1,143 @@
-/* ---------- Base (Dark Mode) ---------- */
+:root {
+  --orange: #ffa31a;;
+  --gray-dark: #D1D5DB;    /* made lighter so it isn't near-black on dark bg */
+  --gray: #9CA3AF;
+  --gray-light: #EFEFEF;
+  --border: #CFCFCF;
+  --text: #E5E7EB;        /* global body text color (light) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #111;
+}
+
+/* ensure all page text is light on the dark background */
 body {
-    font-family: Arial, sans-serif;
-    max-width: 1300px;
-    margin: 40px auto;
-    line-height: 1.6;
-    background-color: #111;   /* dark background */
-    color: #eee;              /* bright readable text */
-    padding: 0 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--text);
 }
 
-/* ---------- Post container ---------- */
-.post {
-    border: 1px solid #333;
-    background: #1a1a1a;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+.about {
+    color: #ccc
 }
 
-/* ---------- Headings ---------- */
-h1, h2 {
-    text-align: center;
-    color: #fff;
+.container {
+  width: 90%;
+  max-width: 850px;
+  margin: auto;
 }
 
-.preview-post h2 {
-    margin: 0;
-    line-height: 1.1;
+.header {
+  border-bottom: 3px solid var(--orange);
+  padding: 12px 0;
 }
 
-/* ---------- Links ---------- */
-a,
-a:visited,
-a:hover,
-a:active {
-    color: #ffb61a;
-    text-decoration: none;
-} 
-a:hover { text-decoration: underline; }
-
-/* ---------- Grid wrapper (1–3 columns) ---------- */
-.preview-grid {
-    display: grid;
-    row-gap: 0.3rem;
-    column-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
-    max-width: 1300px;
-    margin: 0 auto;
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* ---------- Preview card ---------- */
-.preview-post {
-    display: flex;
-    gap: 1rem;
-    border: 1px solid #333;
-    background: #1a1a1a;
-    padding: 1rem;
-    padding-bottom: 0;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    align-items: flex-start;
+.site-name {
+  font-weight: 700;
+  color: var(--orange);
+  margin: 0;
+  text-align: center;
 }
 
-/* Anchor wrapper inside flex */
-.preview-post > a {
-    display: block;
-    flex: 0 0 auto;
-}
-
-/* ---------- Image styling ---------- */
-.preview-post .preview-image {
-    width: 120px;
-    height: auto;
-    object-fit: contain;
-    object-position: bottom;
-    border-radius: 6px;
-    flex-shrink: 0;
-    border: 1px solid #444; /* darker border */
-    background-color: #000; /* removes white borders on some formats */
-}
-
-/* ---------- Text area ---------- */
-.preview-post .preview-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 16px;
-    color: #ddd;
+.post-title{
+  font-weight: 700;
+  color: var(--orange);
+  margin: 0;
+  text-align: center;
 }
 
 
-/* ======================================
-   MOBILE RESPONSIVENESS
-   ====================================== */
-
-/* ---------- Collapse image + text to vertical stack ---------- */
-@media (max-width: 600px) {
-    .preview-post {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .preview-post .preview-image {
-        width: 100%;
-        max-width: 320px;
-        margin-bottom: 0.5rem;
-    }
-
-    .preview-post .preview-text {
-        text-align: left; /* or center if you prefer */
-        width: 100%;
-    }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
 }
+
+.hero {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--orange);
+}
+
+.hero h1 {
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--orange);
+}
+
+.section.gray {
+  background: var(--gray-light);
+}
+
+h2 {
+  margin-bottom: 16px;
+  color: var(--orange);
+}
+
+.project {
+  margin-bottom: 24px;
+}
+
+.project-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.project-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid var(--orange);
+}
+
+.project-text h3 {
+  margin-bottom: 4px;
+}
+
+.project-text p {
+  color: #ccc;
+}
+
+.project h3 {
+  margin-bottom: 4px;
+}
+
+.project p {
+  color: #ccc;
+}
+
+p {
+    color: #ccc
+}
+
+a, a:visited, a:active {
+  color: var(--orange);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* Simulator-specific rules moved to /posts/1-em-simulator/styles.css */
