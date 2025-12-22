@@ -102,32 +102,40 @@
     </div>
 
   </div>
-
+ 
   <div class="container below-sim">
     <h2>What's being solved?</h2>
 
     <p>
-      The simulation is iteravely solving in real time for <span style="color:red;">$\mathbf{E}$</span> and
-      <span style="color:green;">$\mathbf{B}$</span> taking into account the
-      values of <span style="color:cyan;">$\rho$</span> and <span style="color:cyan;">$\mathbf{J}$</span>
+      The simulation is iteravely solving in real time for <span style="color:red;">\( \mathbf{E} \)</span> and
+      <span style="color:green;">\( \mathbf{B} \)</span> taking into account the
+      values of <span style="color:cyan;">\( \rho \)</span> and <span style="color:cyan;">\( \mathbf{J} \)</span>
       determined by the position and velocity of the blue charge controlled by the mouse pointer:
     </p>
 
     <p>
-      $$\nabla \cdot \mathbf{\color{red}{E}} = \frac{\color{cyan}{\rho}}{\varepsilon}$$
-      $$\nabla \cdot \mathbf{\color{green}{B}} = 0$$
-      $$\nabla \times \mathbf{\color{red}{E}} = -\frac{\partial \mathbf{\color{green}{B}}}{\partial t}$$
-      $$\nabla \times \mathbf{\color{green}{B}} = \mu_0 \mathbf{\color{cyan}{J}} + \mu_0 \varepsilon \frac{\partial \mathbf{\color{red}{E}}}{\partial t}$$
+      \[
+        \nabla \cdot \mathbf{\color{red}{E}} = \frac{\color{cyan}{\rho}}{\varepsilon}
+      \]
+      \[
+        \nabla \cdot \mathbf{\color{green}{B}} = 0
+      \]
+      \[
+        \nabla \times \mathbf{\color{red}{E}} = -\frac{\partial \mathbf{\color{green}{B}}}{\partial t}
+      \]
+      \[
+        \nabla \times \mathbf{\color{green}{B}} = \mu_0 \mathbf{\color{cyan}{J}} + \mu_0 \varepsilon \frac{\partial \mathbf{\color{red}{E}}}{\partial t}
+      \]
     </p>
 
-    <p>The value of $\mu_0$ is fixed and the value of $\varepsilon$ is dependent on the dielectric configuration.</p>
+    <p>The value of \( \mu_0 \) is fixed and the value of \( \varepsilon \) is dependent on the dielectric configuration.</p>
 
     <h2>What is ACTUALLY being solved?</h2>
 
     <p>
       In this simulation, only a finite number of points of the fields are being simulated.
-      Only <span style="color:red;">$E_x$</span>, <span style="color:red;">$E_y$</span> 
-      and <span style="color:green;">$H_z$</span> are taken into account, and are discretized in the
+      Only <span style="color:red;">\( E_x \)</span>, <span style="color:red;">\( E_y \)</span> 
+      and <span style="color:green;">\( H_z \)</span> are taken into account, and are discretized in the
       following way:
     </p>
 
@@ -136,7 +144,7 @@
     </figure>
 
     <p>
-      This allows the curl $\left(\nabla \times \right)$ calculations to be most accurate where they are needed.
+      This allows the curl \( \left(\nabla \times \right) \) calculations to be most accurate where they are needed.
       This is called a Yee latice and the method is called Finite-difference time-domain method (FDTD).
     </p>
 
@@ -160,8 +168,8 @@
 
     <p>
       Technically, yes, it's travelling faster than the speed of light *in the arbitrary medium it's being simulated*.
-      The simulation is being carried out with normalized values for $\mu$ and $\varepsilon$, one may consider the
-      actual values of these parameters very large, giving a very small value for $v = 1/\sqrt{\varepsilon \mu}$
+      The simulation is being carried out with normalized values for \( \mu \) and \( \varepsilon \), one may consider the
+      actual values of these parameters very large, giving a very small value for \( v = 1/\sqrt{\varepsilon \mu} \)
     </p>
   </div>
 </main>
