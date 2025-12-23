@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Game of Cabeza and an Engine</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body onkeypress="keyPress(event)">
+
+<header class="header">
+  <div class="container">
+    <a href="/" style="margin: 0 auto;">
+      <h1 class="site-name">Bruno Glecer</h1>
+    </a>
+  </div>
+</header>
+
+
+<main>
+    
+<article class="post">
+    <h2 class="post-title">
+        Game of Cabeza and an Engine</h2>
+    
+
+<div class="container">
+
+<h1>Rules</h1>
+
+<p>
+Cabeza is a two player strategy game played on a 10x10 board. Each player has 5 different pieces in the game at all times.
+Except for the cabeza, the rest of the pieces consist of integer-sided rectangular prisms which are always aligned to the board grid 
+(called block pieces).
+</p>
+
+<br>
+
+<p>
+Players (<span style="color:red;">red</span> and <span style="color:rgb(23, 87, 207);">blue</span>) take turns, starting with red. In each turn a player has to choose a single piece and move
+it once or twice according to valid move patterns. All block pieces move by rotating along one of its edges that touch the
+grid, effectivly "rolling" from one position to another.
+</p>
+
+<br>
+
+<p>
+All pieces can be rotated once or twice per turn, except for the Opa (2x2x2) piece which can only be rolled once.
+</p>
+
+<br>
+
+<p>Specifically, the block pieces are named:</p>
+
+<br>
+
+
+<ul style="margin-left: 20px;">
+  <li>Mini 1 × 1 × 1</li>
+  <li>Flaco 2 × 1 × 1</li>
+  <li>Chato 2 × 2 × 1</li>
+  <li>Opa 2 × 2 × 2</li>
+</ul>
+
+<br>
+
+
+<p>
+Finally the last piece is the Cabeza. This piece moves by sliding to a neighbouring square, including its four diagonal squares.
+(Similar to the king in chess). This piece can slide once or twice per turn. If a diagonal slide motion is blocked by the edge of a piece,
+it can pass through. But if a diagonal slide requires cutting through the edges of two pieces, then it cannot pass through.
+</p>
+
+<br>
+
+
+
+<figure style="text-align: center;">        
+    <img src="images/examples.png" width="400">
+</figure>
+
+
+Null moves aren't allowd for any piece. Moves that result in a piece landing on a square occuped by another piece of either player are no allowd. Except for a block piece landing on the opponent's Cabeza piece (see Winning)
+
+The initial starting position is as follows:
+
+[INSERT STARTING POSITION]
+
+<h2>Rules</h2>
+<h2>Winning</h2>
+<h1>Notation</h1>
+<h2>Movements</h2>
+
+</div>
+</article>
+</main>
+
+
+
+<footer class="footer">
+  <p>© 2025 Bruno Glecer</p>
+</footer>
+
+
+</body>
+</html>
