@@ -27,7 +27,7 @@ body {
 
 .container {
   width: 90%;
-  max-width: 900px;
+  max-width: 850px;
   margin: auto;
 }
 
@@ -86,9 +86,12 @@ h2 {
   margin-bottom: 16px;
   color: var(--orange);
 }
-
+h1 {
+  margin-bottom: 8px;
+  color: var(--orange);
+}
 .project {
-  margin-bottom: 5px;
+  margin-bottom: 24px;
 }
 
 .project-row {
@@ -105,7 +108,8 @@ h2 {
 }
 
 .project-text h3 {
-  margin-bottom: 2px;
+  margin-top: 0px;
+  margin-bottom: 4px;
 }
 
 .project-text p {
