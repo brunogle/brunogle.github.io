@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>A Prime-Generating Constant</title>
     <link rel="stylesheet" href="/styles.css">
+
 </head>
 <body onkeypress="keyPress(event)">
 
@@ -22,18 +23,46 @@
     <h2 class="post-title">
         A Prime-Generating Constant</h2>
     
-<meta http-equiv="refresh" content="0; url=https://arxiv.org/abs/2010.15882" />
-
-<script>
-  window.location.href = "https://arxiv.org/abs/2010.15882";
-</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<div class="container">
 
 <p>
-  Redirecting…  
-  <a href="https://arxiv.org/abs/2010.15882">
-    Click here if you are not redirected.
-  </a>
+  In 2017 my friend Juli asked himself this question: Is it possible to generate the prime numbers by starting with a constant
+  (<span>\(f_1=2. \cdots \)</span>) that when rounded down gives the first prime (<span>\( \lfloor f_1 \rfloor\ = p_1 = 2 \)</span>), and
+  then by multiplying this prime by some other real number encoded in <span>\(f_1\)</span>, we can reach a value <span>\(f_2=3. \cdots \)</span> that
+  rounds to the next prime (3), and so on. Expressed mathmematically:
 </p>
+
+<p>
+\[
+  \large f_{n+1} = \lfloor f_n  \rfloor \cdot G(f_n) ~~~~~~~~~~  \lfloor f_n \rfloor = p_n
+\]
+</p>
+
+
+
+<p>
+  What do we know about this multiplicative factor <span>\( G(f_n) \)</span>? We can infer that 
+</p>
+
+<p>
+\[
+  G(f_n) = \frac{f_{n+1}}{\lfloor f_n \rfloor} = \frac{f_{n+1}}{p_n} \lt \frac{p_n }{p_n}
+\]
+</p>
+
+<p>
+\[
+  \large \lambda = \sum_{k=1}^{\infty} \frac{p_k -1}{\prod_{i=1}^{k-1} p_i} =
+  \frac{2 - 1}{1} + \frac{3 - 1}{2} + \frac{5 - 1}{2 \cdot 3} + \frac{7 - 1}{2 \cdot 3 \cdot 5}  + \dots
+\]
+</p>
+
+<p>
+
+
+</div>
+
 </article>
 </main>
 
