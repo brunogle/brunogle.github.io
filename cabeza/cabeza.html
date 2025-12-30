@@ -1,0 +1,210 @@
+---
+title: Game of Cabeza and its engine
+tags: project
+description: This project combines a custom board game
+  with a command-line engine that analyzes and plays the
+  game using minimax search with alpha–beta pruning. The
+  engine includes configurable depth and time limits, a
+  concise move-notation system, FEN-like position encoding,
+  and interactive commands for move execution, undoing, and automated play.
+layout: post.njk
+permalink: /cabeza/
+image: /cabeza/images/cabeza.png
+order: 2.5
+---
+
+<head>
+    <script src="repo-card.js"></script>
+
+    <style>
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<div class="container">
+    
+    <h1>Rules</h1>
+    
+    <p>
+        Cabeza is a two player strategy game played on a 10x10 board. Each player has 5 different pieces in the game at all times.
+        The pieces are:
+    </p>
+
+    <ul style="margin-left: 20px;">
+        <li>Mini 1 x 1 x 1 block</li>
+        <li>Flaco 2 x 1 x 1 block</li>
+        <li>Chato 2 x 2 x 1 block</li>
+        <li>Opa 2 x 2 x 2 block</li>
+        <li>Cabeza 1 x 1 disk</li>
+    </ul>    
+
+    <p>
+        Except for the cabeza, the rest of the pieces consist of rectangular prisms which are always aligned to the board grid.
+    </p>
+        
+    <p>
+        The players (<span style="color:red;">red</span> and <span style="color:rgb(23, 87, 207);">blue</span>) take turns,
+        starting with <span style="color:red;">red</span>. In each turn a player has to <u>choose a single piece</u> and <u>move
+        it once or twice</u> according to the rules. All block pieces move by rotating along one of its edges that touch the
+        grid, effectively "rolling" from one position to another.
+    </p>
+    
+    <p>
+        All pieces can be rotated once or twice per turn, except for the Opa (2x2x2) piece which can only be moved once per turn.
+    </p>
+    
+    <p>
+        <u>The Cabeza</u> (meaning head in spanish) moves by sliding to a neighbouring square, including its four diagonal neighbours.
+        (Similar to the king in chess). This piece can slide once or twice per turn. If a diagonal slide motion is blocked by the edge of a piece,
+        it can pass through. But if a diagonal slide requires cutting through the edges of two pieces, then it cannot pass through.
+    </p>
+
+    <p>
+        Some example moves:
+    </p>
+    <figure style="text-align: center;">        
+        <img src="images/examples.png" width="600">
+    </figure>
+    
+    <p>
+        Null moves aren't allowed. Moves that result in a piece stepping outside the board are forbidden. Landing on a square occuped by
+        another piece of either player are also not allowed. Except for a block piece landing on the opponent's Cabeza piece (see Winning). 
+        This rules apply even to intermediate moves of a turn.
+    </p>
+    
+    <p>
+        The starting position is as follows: (M=Mini  F=Flaco  H=Chato   O=Opa   C=Cabeza)
+    </p>
+        
+    <figure style="text-align: center;">        
+        <img src="images/start.png" width="500">
+    </figure>
+    
+    <p>A player wins by performing a move that either:</p>
+    
+    <ul style="margin-left: 20px;">
+        <li>Places a block piece on top of the opponent's Cabeza piece</li>
+        <li>Places the player's cabeza to the oponents home row</li>
+    </ul>
+    
+    
+    <h1>Engine</h1>
+    
+    An engine was developed for finding the best move given a position. It can be found in this repository
+    <br><br>
+    
+    <div style="width: 500px;" class="container">
+        <div class="repo-card" data-repo="brunogle/cabeza-engine" data-theme="dark-theme"></div>
+    </div>
+    
+    <h2>Notation</h2>
+    
+    <p>
+        A move is represented by a 2 to 5 letter string. The first letter represents the piece:
+    </p>
+    
+    <ul>
+        <li><strong>c / C</strong> : Cabeza</li>
+        <li><strong>m / M</strong> : Mini</li>
+        <li><strong>f / F</strong> : Flaco</li>
+        <li><strong>h / H</strong> : Chato</li>
+        <li><strong>o / O</strong> : Opa</li>
+    </ul>
+    
+    <p>
+        Uppercase letters represent <span style="color:red;">red</span> pieces and lowercase letters represent <span style="color:rgb(23, 87, 207);">blue</span> pieces.
+    </p>
+    
+    <p>
+        This is followed by a combination of <code>n</code>, <code>s</code>, <code>e</code>, <code>w</code>,
+        representing the cardinal directions (north, south, east, west) of rolling or sliding moves.
+        Directions are defined assuming the board is oriented with red starting on the south
+        and blue starting on the north.
+    </p>
+    
+    <p>
+        For a Cabeza piece, a diagonal move can be represented by a combination of North/South with East/West.
+    </p>
+    
+    <p>
+        For Cabeza and Mini pieces where move order is irrelevant, north (<code>n</code>) and south (<code>s</code>)
+        are always written before east (<code>e</code>) and west (<code>w</code>).
+    </p>
+    
+    <p>For example:</p>
+    
+    <ul>
+        <li><code>Fne</code> : Represents the red Flaco rolling north once and then rolling east.</li>
+        <li><code>ms</code> : Represents the blue Mini rolling south once.</li>
+        <li>
+            <code>Cnne</code> : Represents the red Cabeza sliding northeast once and north once
+            (order is irrelevant for Cabeza).
+        </li>
+        <li>
+            <code>Fen</code> : Represents the red Flaco rolling east once and then north.
+            Note: this is <strong>not</strong> the same move as <code>Fne</code>.
+        </li>
+        <li><code>ow</code> : Represents the blue Opa rolling west once.</li>
+    </ul>
+    
+    <h2>Commands</h2>
+    
+    
+    <style>
+        .commands dt {
+            font-weight: bold;
+            margin-top: 0.75em;
+        }
+        
+        .commands dd {
+            margin-left: 1.5em;
+            margin-bottom: 0.5em;
+        }
+    </style>
+    
+    
+    <dl class="commands">
+        <dt><code>draw</code> / <code>d</code></dt>
+        <dd>Draws the board on screen using characters.</dd>
+        
+        <dt><code>move</code> / <code>m</code> <code>[move]</code></dt>
+        <dd>Plays a move for the current active player and switches turn.</dd>
+        
+        <dt><code>turn</code> / <code>t</code> <code>[player]</code></dt>
+        <dd>
+            Switches the turn. If no argument is passed, toggles the turn.
+            Use <code>red</code>/<code>r</code> or <code>blue</code>/<code>b</code> to set explicitly.
+        </dd>
+        
+        <dt><code>search</code> / <code>s</code></dt>
+        <dd>Performs a search to find the best move for the current player.</dd>
+        
+        <dt><code>play</code> / <code>P</code></dt>
+        <dd>Same as search, but automatically plays the best move and switches turns.</dd>
+        
+        <dt><code>fen</code> <code>[fen]</code></dt>
+        <dd>
+            Prints a FEN-like string if no argument is passed.
+            If a valid FEN string is provided, sets the current game state.
+        </dd>
+        
+        <dt><code>undo</code> / <code>u</code></dt>
+        <dd>Reverts the last performed move.</dd>
+        
+        <dt><code>reset</code></dt>
+        <dd>Resets the game to the starting position.</dd>
+        
+        <dt><code>timeout</code> <code>[time]</code></dt>
+        <dd>Sets the search time limit in milliseconds.</dd>
+        
+        <dt><code>depth</code> <code>[depth]</code></dt>
+        <dd>Sets the maximum search depth.</dd>
+        
+        <dt><code>quit</code></dt>
+        <dd>Exits the program.</dd>
+    </dl>
+    
+    
+</div>

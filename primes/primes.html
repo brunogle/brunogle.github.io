@@ -1,0 +1,79 @@
+---
+title: A Prime-Generating Constant
+tags: project
+description: |
+  Some friends and I developed and idea for a mathmetical constant that
+  produces the prime numbers together with a recursive formula. It was
+  published together with mathematician and math communicator James Grime at
+  the American Mathematical Monthly 
+layout: post.njk
+permalink: /primes/
+image: /primes/images/primes.png
+order: 4
+---
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<div class="container">
+
+<p>
+  In 2017 my friend Juli asked himself this question: Is it possible to generate the prime numbers by starting with a constant
+  (<span>\(f_1=2. \cdots \)</span>) that when rounded down gives the first prime (<span>\( \lfloor f_1 \rfloor\ = p_1 = 2 \)</span>), and
+  then by multiplying this prime by some other real number encoded in <span>\(f_1\)</span>, we can reach a value <span>\(f_2=3. \cdots \)</span> that
+  rounds to the next prime (3), and so on. It turns out that it's possible, using this recursive formula:
+</p>
+
+<p>
+\[
+  \large f_{n+1} = \lfloor f_n  \rfloor \left( 1 + \{f_n\} \right) ~~~~~~~~~~  \lfloor f_n \rfloor = p_n
+\]
+</p>
+
+<p>
+  Where <span>\(  \{f_n\}  \)</span> is the mantisa of <span>\(  f_n  \)</span>
+</p>
+
+<p>
+  The starting value to generate all primes, <span>\(  f_n  \)</span> , also refered to as <span>\(  \lambda  \)</span>
+  can be calculatedas:
+</p> 
+
+<p>
+\[
+  \large \lambda = \sum_{k=1}^{\infty} \frac{p_k -1}{\prod_{i=1}^{k-1} p_i} =
+  \frac{2 - 1}{1} + \frac{3 - 1}{2} + \frac{5 - 1}{2 \cdot 3} + \frac{7 - 1}{2 \cdot 3 \cdot 5}  + \dots
+\]
+</p>
+
+<p>
+This value is approximatley equal to 2.920050977316134712. You can download 1 million digits <a href="./lambda_1000000.txt" download>here</a>.
+</p> 
+
+<p>
+  Together with Juli, Dylan and Massi, we where able to prove some properties of this recursive formula and associated constant,
+  including that it's irrational. Mathematician and math communicator James Grime helped us publish this result in the American Mathematical Monthly.
+  The preprint is available on <a href="https://arxiv.org/abs/2010.15882">arxiv</a>.
+</p>
+
+
+<p>
+  The YouTube channel Numberfile for which James makes regular appearences made a video on the topic!
+</p>
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_gCKX6VMvmU?si=JpgPnI8hkeb_3bpX" title="YouTube video player"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<p>
+  And a follow-up video:
+</p>
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yXPhq-36Eq4?si=mKXg84f_J0zVXI5c" title="YouTube video player"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+</div>

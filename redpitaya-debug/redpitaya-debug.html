@@ -1,0 +1,84 @@
+---
+title: Workaround to debug Red Pitaya FPGA (or other non-PetaLinux Zynq boards) with XilinxVirtualCable
+tags: post
+description: .
+layout: post.njk
+permalink: /redpitaya-debug/
+image: .
+order: 1
+---
+
+
+<div class="container">
+<head>
+  <meta charset="UTF-8">
+
+    <script src="repo-card.js"></script>
+
+
+  <!-- Dark theme stylesheet -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+  <!-- Highlight.js core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- C language support -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
+
+  <script>
+    hljs.highlightAll();
+  </script>
+</head>
+<style>
+  code {
+    background-color: #3f3e46;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+</style>
+
+
+<p>
+    Xilinx provides a tool called <a href="https://github.com/Xilinx/XilinxVirtualCable">XilinxVirtualCable</a> (XVC) that allows the developer
+    to debug a Zynq7000 FPGA SoC though an ethernet connection. This software runs on the PS of the Zynq, it acts as an interface
+    between Vivado communicating through LAN, and the Debug Bridge instantiated in the PL communicating through AXI (Mapped memory from
+    the POV of the PS).
+</p>
+
+<p>
+    In PetaLinux, this mapped memory is provided by the device <code>/dev/uio0</code>. But in general, this device has to be implemented manually in case of using a different
+    OS. Adding this in requires implementing the device in the Linux Device Tree for the given platform, this can be tircky to do depending on the
+    system. To circumvent this, it's possible to rewrite the XVC server to instead use <code>/dev/mem</code> to access the Debug Bridge.
+</p>
+
+<p>
+    This are the only changes one needs to make to XVC:
+</p>
+
+<pre><code class="language-c">
+...
+#define MAP_SIZE 0x10000
+#define MAP_ADDR 0x43C00000
+...
+char *d = "mem";
+...
+volatile jtag_t* ptr = (volatile jtag_t*) mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd_uio, MAP_ADDR);
+...
+</code></pre>
+
+<p>
+    The modified file can be found in the following repository:
+</p>
+
+    <div style="width: 500px;" class="container">
+        <div class="repo-card" data-repo="brunogle/nonpetalinux-xvc" data-theme="dark-theme"></div>
+    </div>
+
+<p>
+
+
+    <p>IMPORTANT: When running the server, make sure the bitstream is loaded and the Debug Bridge is connectes via AXI to the PS, otherwise
+        the OS will crash immediatly, requiring a hard reset</p>
+</p>
